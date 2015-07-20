@@ -149,21 +149,21 @@ module.exports = (function () {
 
         if (!shipID)
         {
-            console.log("miss!");
+            console.log('miss!');
             return false;
         }
         else
         {
             this.setField(x, y, 0);
-            console.log("hit!");
+            console.log('hit!');
 
             if (this.shipSunk(shipID))
             {
-                console.log("you sunk:", this.ships[shipID - 1]);
+                console.log('you sunk:', this.ships[shipID - 1]);
 
                 if (this.allSunk())
                 {
-                    console.log("All ships sunk ");
+                    console.log('All ships sunk ');
                     this.gameOver = true;
                 }
             }

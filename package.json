@@ -19,5 +19,12 @@
   "homepage": "https://github.com/humancatfood/pebbleship#readme",
   "dependencies": {
     "prompt": "^0.2.14"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.0.1"
+  },
+  "scripts": {
+    "test": "jshint --reporter=node_modules/jshint-stylish main.js src"
   }
 }

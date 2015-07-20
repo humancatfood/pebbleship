@@ -45,7 +45,7 @@ module.exports = (function () {
     var restartInput = {
         properties: {
             input: {
-                description: "Wanna play again? (y/n)"
+                description: 'Wanna play again? (y/n)'
             }
         }
     };
@@ -54,16 +54,16 @@ module.exports = (function () {
     // exits the program
     var exit = function (code) {
 
-        console.log("bye!");
+        console.log('bye!');
         process.exit(code || 0);
 
     };
 
 
-    // a step in the "game-loop"
+    // a step in the 'game-loop'
     var step = function() {
 
-        // My "game-loop" is completely callback-based and this is more robust than trusting
+        // My 'game-loop' is completely callback-based and this is more robust than trusting
         // myself to get the tail-calls 100% right.
         setTimeout(function () {
 

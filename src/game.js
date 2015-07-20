@@ -65,70 +65,78 @@ module.exports = (function () {
 
         // My "game-loop" is completely callback-based and this is more robust than trusting
         // myself to get the tail-calls 100% right.
-        prompt.get(shootInput, function (err, result) {
+        setTimeout(function () {
 
-            if (err)
-            {
-                console.error(('' + err).red);
-                exit(1);
-            }
-            else if (result.input === 'q')
-            {
-                exit(0);
-            }
-            else if (result.input === 'c')
-            {
-                world.render();
-                setTimeout(step, 0);
-            }
-            else
-            {
-                var match = result.input.match(/^([a-z])([0-9])$/);
-                if (!match)
+
             // prompt for coordinates
+            prompt.get(shootInput, function (err, result) {
+
+                if (err)
                 {
-                    console.log('Unrecognised input:', result.input);
+                    console.error(('' + err).red);
+                    exit(1);
+                }
+                else if (result.input === 'q')
+                {
+                    // user quits
+                    exit(0);
+                }
+                else if (result.input === 'c')
+                {
+                    // user cheats
+                    world.render();
+                    step();
                 }
                 else
                 {
                     // user shoots
-                    var col = match[1].charCodeAt(0) - 'a'.charCodeAt(0);
-                    var row = Number(match[2]);
-
-                    if (world.shoot(col, row) && world.gameOver)
+                    var match = result.input.match(/^([a-z])([0-9])$/);
+                    if (!match)
                     {
                         // this should be caught by promptJS anyway
-                        console.log('Victory!');
-
-                        prompt.get(restartInput, function (err, result) {
-
-                            if (err)
-                            {
-                                console.error(err);
-                                exit(1);
-                            }
-                            else if (result.input.toLowerCase() === 'y')
-                            {
-                                setTimeout(start, 0);
-                            }
-                            else
-                            {
-                                exit(0);
-                            }
-
-                        });
-
+                        console.error('Unrecognised input:', result.input);
+                        step();
                     }
                     else
                     {
                         // turning the character into a number
-                        setTimeout(step, 0);
+                        var col = match[1].charCodeAt(0) - 'a'.charCodeAt(0);
+                        var row = Number(match[2]);
+
                         // world.shoot returns true if we hit something
+                        if (world.shoot(col, row) && world.gameOver)
+                        {
+                            console.log('Victory!');
+
                             // check if the user wants to play again
+                            prompt.get(restartInput, function (err, result) {
+
+                                if (err)
+                                {
+                                    console.error(err);
+                                    exit(1);
+                                }
+                                else if (result.input.toLowerCase() === 'y')
+                                {
+                                    setTimeout(start, 0);
+                                }
+                                else
+                                {
+                                    exit(0);
+                                }
+
+                            });
+
+                        }
+                        else
+                        {
+                            step();
+                        }
                     }
                 }
-            }
-        });
+            });
+
+        }, 0);
 
     };
 

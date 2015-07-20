@@ -57,7 +57,7 @@ module.exports = (function () {
     // exits the program
     var exit = function (code) {
 
-        console.log('bye!');
+        console.log('bye!\n\n');
         process.exit(code || 0);
 
     };
@@ -105,7 +105,7 @@ module.exports = (function () {
                         // world.shoot returns true if we hit something
                         if (world.shoot(match[1], match[2]) && world.gameOver)
                         {
-                            console.log('Victory!');
+                            console.log('Victory!\n\n');
 
                             // check if the user wants to play again
                             prompt.get(restartInput, function (err, result) {

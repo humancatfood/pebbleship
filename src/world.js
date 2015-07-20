@@ -34,7 +34,7 @@ module.exports = (function () {
             grid[i] = 0;        // 0 means water
         }
 
-        console.log('World created: ', width + 'x' + height);
+        console.log('World created: ', width + 'x' + height, '\n');
 
         return this;
 
@@ -164,7 +164,7 @@ module.exports = (function () {
             );
         }
 
-        console.log('Ship added:', shipSize);
+        console.log('Ship added:', shipSize, '\n');
         return this;
 
     };
@@ -185,24 +185,24 @@ module.exports = (function () {
 
         if (!shipID)
         {
-            console.log('miss!');
+            console.log('miss!\n');
             return false;
         }
         else
         {
             // .. destroy that part ..
             this.setField(x, y, 0);
-            console.log('hit!');
+            console.log('hit!\n\n');
 
             // .. and check if there's anything of that ship left.
             if (this.shipSunk(shipID))
             {
-                console.log('you sunk:', this.ships[shipID - 1]);
+                console.log('you sunk:', this.ships[shipID - 1], '!\n\n');
 
                 // If not, check if there's anything left at all
                 if (this.allSunk())
                 {
-                    console.log('All ships sunk ');
+                    console.log('All ships sunk!\n');
                     this.gameOver = true;
                 }
             }
@@ -251,6 +251,8 @@ module.exports = (function () {
 
         var header = '     a  b  c  d  e  f  g  h  i  j  ';
         var hr     = '    -----------------------------';
+
+        console.log('\n');
         console.log(header.slice(0, this.width * 3 + 5));
         console.log(hr.slice(0, this.width * 3 + 5));
 
@@ -260,6 +262,7 @@ module.exports = (function () {
             prefix = (y + 1) + (y > 8 ? ' |' : '  |');
             console.log(prefix, this.grid.slice(y*this.width, (y + 1) * this.width).join('  '));
         }
+        console.log('\n');
 
     };
     return World;

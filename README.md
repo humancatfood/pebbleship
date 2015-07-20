@@ -1,7 +1,31 @@
 # PEBBLESHIPS
 
+---
+
+#### How to run this:
+
+Clone it:
+
+`https://github.com/humancatfood/pebbleship.git`
+
+Then:
+
+`cd pebbleship`
+
+and
+
+`npm install` to install dependencies
+
+and finally
+
+`npm start`
+
+to run it. Done!
+
 
 ---
+
+# Specs
 
 
 #### Goals:

@@ -25,6 +25,7 @@
     "jshint-stylish": "^2.0.1"
   },
   "scripts": {
-    "test": "jshint --reporter=node_modules/jshint-stylish main.js src"
+    "test": "jshint --reporter=node_modules/jshint-stylish main.js src",
+    "start": "node main.js"
   }
 }

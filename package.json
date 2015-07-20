@@ -1,0 +1,23 @@
+{
+  "name": "pebbleship",
+  "version": "1.0.0",
+  "description": "Battleships Sample Assignment in NodeJS",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humancatfood/pebbleship.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Battleships"
+  ],
+  "author": "Jan Borchers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/humancatfood/pebbleship/issues"
+  },
+  "homepage": "https://github.com/humancatfood/pebbleship#readme",
+  "dependencies": {
+    "prompt": "^0.2.14"
+  }
+}

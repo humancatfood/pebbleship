@@ -171,7 +171,14 @@ module.exports = (function () {
 
 
     // Shoot at a field (x,y)
+    // expects
+    // x to be a lowercase letter between a and whatever letter corresponds to the world's width
+    // y to be a number between 1 and the world's width
     World.prototype.shoot = function (x, y) {
+
+        // turning the character into a number
+        x = x.charCodeAt(0) - 'a'.charCodeAt(0);
+        y = Number(y) - 1;
 
         // If there's a ship there ..
         var shipID = this.getField(x, y);
@@ -242,9 +249,16 @@ module.exports = (function () {
     // Print the world (for debugging and cheating)
     World.prototype.render = function () {
 
+        var header = '     a  b  c  d  e  f  g  h  i  j  ';
+        var hr     = '    -----------------------------';
+        console.log(header.slice(0, this.width * 3 + 5));
+        console.log(hr.slice(0, this.width * 3 + 5));
+
+        var prefix;
         for (var y = 0; y < this.height; y += 1)
         {
-            console.log(this.grid.slice(y*this.width, (y + 1) * this.width).join('  '));
+            prefix = (y + 1) + (y > 8 ? ' |' : '  |');
+            console.log(prefix, this.grid.slice(y*this.width, (y + 1) * this.width).join('  '));
         }
 
     };

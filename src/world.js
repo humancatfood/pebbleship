@@ -20,6 +20,11 @@ module.exports = (function () {
 
     function World(width, height)
     {
+        if (width < 1 || width > 10 || height < 1 || height > 10)
+        {
+            throw new Error('World size must be between 0x0 and 10x10');
+        }
+
         this.width = width;
         this.height = height;
         this.ships = [];
@@ -41,8 +46,7 @@ module.exports = (function () {
         if (y < 0 || y > this.height ||
             x < 0 || x > this.width)
         {
-            console.error("coordinates out of bounds");
-            return null;
+            throw new Error('coordinates out of bounds');
         }
         else
         {
@@ -56,7 +60,7 @@ module.exports = (function () {
         if (y < 0 || y > this.height ||
             x < 0 || x > this.width)
         {
-            console.error("coordinates out of bounds");
+            throw new Error('coordinates out of bounds');
         }
         else
         {

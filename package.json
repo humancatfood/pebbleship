@@ -17,6 +17,7 @@
     "url": "https://github.com/humancatfood/pebbleship/issues"
   },
   "homepage": "https://github.com/humancatfood/pebbleship#readme",
+  "private": true,
   "dependencies": {
     "prompt": "^0.2.14"
   },

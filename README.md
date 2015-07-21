@@ -6,7 +6,7 @@
 
 Clone it:
 
-`https://github.com/humancatfood/pebbleship.git`
+`git clone https://github.com/humancatfood/pebbleship.git`
 
 Then:
 
